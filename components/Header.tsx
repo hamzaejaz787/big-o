@@ -107,8 +107,8 @@ export async function Header() {
 
       <div className="flex items-center gap-4 justify-between px-10 lg:px-20 py-2 bg-custom-purple-600">
         <Logo />
-        <Navbar fonts={bebas} navItems={navItems} />
-        <Sidebar fonts={bebas} navItems={navItems} />
+        <Navbar navItems={navItems} />
+        <Sidebar navItems={navItems} />
       </div>
     </header>
   );

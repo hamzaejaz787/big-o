@@ -1,38 +1,42 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import BackgroundVideo from "@/components/BackgroundVideo";
-import { MdOutlineExpandCircleDown } from "react-icons/md";
+import ScrollSectionButton from "./ScrollSectionButton";
+import Image from "next/image";
+import { HeroSectionTypes } from "@/lib/definitions";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  carouselData: HeroSectionTypes;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({ carouselData }) => {
   return (
-    <section className="relative h-screen sm:h-auto overflow-hidden z-0">
-      <BackgroundVideo videoSrc="/intro-background.mp4">
-        <div className="absolute top-0 bottom-0 w-full content-center px-8 sm:px-20 bg-custom-purple-700 bg-opacity-70 space-y-10 flex flex-col justify-center">
-          <h1 className="font-tommy text-4xl md:text-5xl lg:text-7xl text-center md:text-left text-primary-foreground max-w-5xl uppercase">
-            Next Level <span className="font-bold">Innovation </span>{" "}
+    <section className="relative h-dvh overflow-hidden z-0">
+      <Image
+        src={carouselData.Image.url}
+        alt={carouselData.Image.alternativeText}
+        fill={true}
+        className="object-cover"
+      />
+      <div className="absolute top-0 bottom-0 w-full bg-custom-purple-700/50">
+        <div className="flex flex-col gap-4 h-full justify-center">
+          <h1 className="text-white font-tommy text-6xl max-w-[530px] pl-10 lg:pl-20">
+            {carouselData.Title}
           </h1>
-          <div className="flex items-center justify-between gap-8 w-full flex-col-reverse md:flex-row">
-            <Button
-              asChild
-              variant="outline"
-              className="px-8 py-6 text-lg bg-transparent text-white transition-all duration-200 ease-in"
-            >
-              <Link href="/about">Learn More</Link>
-            </Button>
-            <p className="text-lg md:text-xl text-center md:text-left text-secondary max-w-lg ">
-              Enabling Businesses Smart Decision-Making by Integrating Endless
-              Automation Possibilities Powered by Our Responsible AI
-            </p>
-          </div>
+          <p className="text-white max-w-[530px] pl-10 lg:pl-20">
+            {carouselData.Description}
+          </p>
 
-          <Link href="#what-can-we-do" className="mx-auto animate-bounce pt-8">
-            <MdOutlineExpandCircleDown
-              size={25}
-              className="cursor-pointer text-gray-300 hover:text-white transition-all duration-200"
-            />
-          </Link>
+          <Button
+            asChild
+            className="ml-10 lg:ml-20 w-fit bg-custom-purple-600 text-white text-lg hover:bg-custom-purple-500"
+          >
+            <Link href="/contact">Learn More</Link>
+          </Button>
+          <ScrollSectionButton />
         </div>
-      </BackgroundVideo>
+      </div>
     </section>
   );
-}
+};
+
+export default HeroSection;

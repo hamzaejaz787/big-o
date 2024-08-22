@@ -252,6 +252,66 @@ const CarouselNext = React.forwardRef<
   );
 });
 CarouselNext.displayName = "CarouselNext";
+const CarouselDots = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>((props, ref) => {
+  const { api } = useCarousel();
+  const [updateState, setUpdateState] = React.useState(false);
+  const toggleUpdateState = React.useCallback(
+    () => setUpdateState((prevState) => !prevState),
+    []
+  );
+
+  React.useEffect(() => {
+    if (api) {
+      api.on("select", toggleUpdateState);
+      api.on("reInit", toggleUpdateState);
+
+      return () => {
+        api.off("select", toggleUpdateState);
+        api.off("reInit", toggleUpdateState);
+      };
+    }
+  }, [api, toggleUpdateState]);
+
+  const numberOfSlides = api?.scrollSnapList().length || 0;
+  const currentSlide = api?.selectedScrollSnap() || 0;
+
+  // Determine which dots to show
+  const visibleDots = 3;
+  let start = Math.max(currentSlide - 1, 0);
+  let end = Math.min(start + visibleDots, numberOfSlides);
+
+  if (end - start < visibleDots) {
+    start = Math.max(end - visibleDots, 0);
+  }
+
+  if (numberOfSlides > 1) {
+    return (
+      <div ref={ref} className={`flex justify-center ${props.className}`}>
+        {Array.from({ length: end - start }, (_, i) => {
+          const index = start + i;
+          return (
+            <Button
+              key={index}
+              className={`mx-1 h-1.5 w-8 rounded-full p-0 ${
+                index === currentSlide
+                  ? "scale-125 transform bg-gray-500 hover:bg-gray-300"
+                  : "bg-gray-100 hover:bg-gray-300"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+              onClick={() => api?.scrollTo(index)}
+            />
+          );
+        })}
+      </div>
+    );
+  } else {
+    return <></>;
+  }
+});
+CarouselDots.displayName = "CarouselDots";
 
 export {
   type CarouselApi,
@@ -260,4 +320,5 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  CarouselDots, // Export CarouselDots component
 };

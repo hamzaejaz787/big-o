@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { madeTommy, fontSans } from "@/app/fonts";
+import { madeTommy, quicksand, bebas } from "@/app/fonts";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { ScrollToTopButton } from "@/components/ScrollToTop";
@@ -30,9 +30,10 @@ export default async function RootLayout({
       </head>
       <body
         className={cn(
-          "bg-background font-sans antialiased overflow-x-hidden min-h-screen",
-          fontSans.variable,
-          madeTommy.variable
+          "bg-background font-quicksand antialiased overflow-x-hidden min-h-screen",
+          quicksand.variable,
+          madeTommy.variable,
+          bebas.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">

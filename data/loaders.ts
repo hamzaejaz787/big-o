@@ -76,3 +76,7 @@ export async function getInsightsBySlug(slug: string) {
 
   return await fetchData(url.href);
 }
+
+export const getIndustries = async () => {
+  const url = new URL("/api/");
+};

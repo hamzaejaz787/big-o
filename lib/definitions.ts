@@ -1,5 +1,15 @@
 import z from "zod";
 
+export interface HeroSectionTypes {
+  id: number;
+  Title: string;
+  Description: string;
+  Image: {
+    url: string;
+    alternativeText: string;
+  };
+}
+
 export interface PageProps {
   params: { slug: string };
 }

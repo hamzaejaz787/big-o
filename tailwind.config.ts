@@ -28,8 +28,9 @@ const config = {
         "4xl": "2500px",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        quicksand: ["var(--font-quicksand)"],
         tommy: ["var(--font-tommy)"],
+        bebas: ["var(--font-bebas)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -65,6 +66,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "custom-purple-25": "#F7F3F8",
         "custom-purple-50": "#DA78FF",
         "custom-purple-100": "#B180C3",
         "custom-purple-200": "#9D60B4",

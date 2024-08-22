@@ -3,7 +3,6 @@
 import React from "react";
 import { NavDropDownMenu } from "./DropdownMenu";
 import { useActivePath } from "@/app/helper";
-import { FontProps } from "@/lib/definitions";
 import Link from "next/link";
 
 export interface NavItemProps {
@@ -21,13 +20,7 @@ export interface NavItemTypes {
   children: NavItemTypes[];
 }
 
-const Navbar = ({
-  fonts,
-  navItems,
-}: {
-  fonts: FontProps;
-  navItems: NavItemTypes[];
-}) => {
+const Navbar = ({ navItems }: { navItems: NavItemTypes[] }) => {
   const activepath = useActivePath();
 
   return (
@@ -38,9 +31,7 @@ const Navbar = ({
             key={index}
             className={`${
               activepath(navItem.href) ? "text-white" : "text-gray-400"
-            } hover:text-gray-100 focus-within:text-gray-100 transition-all duration-300 uppercase text-xl ${
-              fonts.className
-            }`}
+            } hover:text-gray-100 focus-within:text-gray-100 transition-all duration-300 uppercase text-xl font-bebas`}
           >
             {navItem.children.length > 0 ? (
               <NavDropDownMenu item={navItem} />

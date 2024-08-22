@@ -2,60 +2,11 @@ import Image from "next/image";
 import Faqs from "@/components/Faqs";
 import GetInTouch from "@/components/GetInTouch";
 import { Separator } from "@/components/ui/separator";
-import IntroSection from "@/app/_components/IntroSection";
-import { HeroSection } from "@/app/_components/HeroSection";
-import { FeatureSection } from "@/app/_components/FeaturesSection";
-import CarouselSection from "@/app/_components/CarouselSection";
-
-const featuresData = [
-  {
-    id: 1,
-    heading: "Business Intelligence (BI) Services",
-    subHeading:
-      "We develop interactive dashboards for real-time data visualization, turning it into a business advantage through Extract, Transform, and Load (ETL) pipeline development. Our BI services leverage industrial-grade tools like Apache Spark, SQL, Python, R, Numpy, Pandas and more to deliver impactful analytics services.",
-    image: {
-      id: 1,
-      url: "/meeting.png",
-      alternativeText:
-        "Tapping into the Potential of AI, ML, and Connected Intelligence for Business Automation",
-    },
-  },
-  {
-    id: 2,
-    heading: "Responsible AI Services",
-    subHeading:
-      "We offer custom-made AI model development using TensorFlow or PyTorch, federated learning solutions for privacy preservation, and predictive insights for resource handling and equipment or machinery maintenance.",
-    image: {
-      id: 2,
-      url: "/artificial_intelligence.png",
-      alternativeText:
-        "Leveraging an Innovative, Unified, and Personalized Experience for Our Clients",
-    },
-  },
-  {
-    id: 3,
-    heading: "Cloud Services",
-    subHeading:
-      "We provide end-to-end cloud infrastructure setup and management using AWS, Terraform, Docker, and Kubernetes along with DevOps integration through Jenkins and GIT. In addition, our cloud services include big data analytics and processing.",
-    image: {
-      id: 3,
-      url: "/cloud_services.png",
-      alternativeText: "Helping Businesses Scale and Revamp For Diverse Needs",
-    },
-  },
-  {
-    id: 4,
-    heading: "Internet of Things (IoT) Services",
-    subHeading:
-      "We empower clients to adapt to their changing needs and integrate IoT technology into their infrastructures. Our IoT services provide business automation by leveraging real-time data analytics and processing and improving operational efficiency.",
-    image: {
-      id: 4,
-      url: "/iot_services.png",
-      alternativeText:
-        "Embracing Modern Technology and Delivering the Finest to Our Clients",
-    },
-  },
-];
+import HeaderCarousel from "./_components/HeaderCarousel";
+import AboutSection from "./_components/AboutSection";
+import SliderSection from "./_components/SliderSection";
+import Cta from "@/components/Cta";
+import WhyUsSection from "./_components/WhyUsSection";
 
 const faqItems = [
   {
@@ -86,13 +37,47 @@ const faqItems = [
   },
 ];
 
+const carouselData = [
+  {
+    id: 1,
+    Image: {
+      url: "/header-image.png",
+      alternativeText: "",
+    },
+    Title: "Elevating the Future of Tech",
+    Description:
+      "Enabling Businesses Smart Decision-Making by Integrating Endless Automation Possibilities Powered by Our Responsible AI",
+  },
+  {
+    id: 2,
+    Image: {
+      url: "/header-image.png",
+      alternativeText: "",
+    },
+    Title: "Elevating the Future of Tech",
+    Description:
+      "Enabling Businesses Smart Decision-Making by Integrating Endless Automation Possibilities Powered by Our Responsible AI",
+  },
+  {
+    id: 3,
+    Image: {
+      url: "/header-image.png",
+      alternativeText: "",
+    },
+    Title: "Elevating the Future of Tech",
+    Description:
+      "Enabling Businesses Smart Decision-Making by Integrating Endless Automation Possibilities Powered by Our Responsible AI",
+  },
+];
+
 const Home = async () => {
   return (
-    <main className="bg-gray-200 h-full">
-      <HeroSection />
-      <IntroSection />
-      <FeatureSection data={featuresData} />
-      <CarouselSection />
+    <main>
+      <HeaderCarousel carouselData={carouselData} />
+      <AboutSection />
+      <SliderSection />
+      <Cta />
+      <WhyUsSection />
       <section className="container px-6 sm:px-8 lg:h-screen 2xl:max-h-[800px] my-8 flex items-center justify-between gap-4 flex-wrap lg:flex-nowrap">
         <Image
           src="/faq-illustration.png"

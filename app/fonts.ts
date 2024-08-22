@@ -1,9 +1,9 @@
 import localFont from "next/font/local";
-import { Quicksand as FontSans, Bebas_Neue } from "next/font/google";
+import { Quicksand, Bebas_Neue, Inter, Montserrat } from "next/font/google";
 
-export const fontSans = FontSans({
+export const quicksand = Quicksand({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-quicksand",
   weight: ["400", "500", "700"],
 });
 

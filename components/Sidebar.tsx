@@ -12,16 +12,10 @@ import { NavItemTypes } from "./Navbar";
 import { MdOutlineMenu } from "react-icons/md";
 import { Logo } from "./Logo";
 import Link from "next/link";
-import { FontProps } from "@/lib/definitions";
+
 import { FaChevronDown } from "react-icons/fa6";
 
-const Sidebar = ({
-  fonts,
-  navItems,
-}: {
-  fonts: FontProps;
-  navItems: NavItemTypes[];
-}) => {
+const Sidebar = ({ navItems }: { navItems: NavItemTypes[] }) => {
   const [sheetOpen, setSheetOpen] = React.useState(false);
 
   return (
@@ -43,7 +37,6 @@ const Sidebar = ({
               <SheetClose asChild key={item.href}>
                 <NavMenu
                   item={item}
-                  fonts={fonts}
                   open={sheetOpen}
                   setSheetOpen={setSheetOpen}
                 ></NavMenu>
@@ -58,12 +51,10 @@ const Sidebar = ({
 
 const NavMenu = ({
   item,
-  fonts,
   open,
   setSheetOpen,
 }: {
   item: NavItemTypes;
-  fonts: FontProps;
   open: boolean;
   setSheetOpen: (value: boolean) => void;
 }) => {
@@ -78,7 +69,7 @@ const NavMenu = ({
         <Link
           href={item.href}
           onClick={() => setSheetOpen(false)}
-          className={`flex w-full items-center gap-2 rounded-md p-2 text-white hover:text-gray-400 focus:text-gray-400 transition-all duration-300 uppercase text-xl font-bold ${fonts.className}`}
+          className={`flex w-full items-center gap-2 rounded-md p-2 text-white hover:text-gray-400 focus:text-gray-400 transition-all duration-300 uppercase text-xl font-bold font-bebas`}
         >
           {item.title}
         </Link>
@@ -103,13 +94,12 @@ const NavMenu = ({
               key={index}
               href={item.href}
               onClick={() => setSheetOpen(false)}
-              className={`text-white hover:text-gray-400 focus:text-gray-400 transition-all duration-300 uppercase text-xl ${fonts.className} translate-x-4 flex w-full items-center rounded-md p-2 `}
+              className={`text-white hover:text-gray-400 focus:text-gray-400 transition-all duration-300 uppercase text-xl font-bebas translate-x-4 flex w-full items-center rounded-md p-2 `}
             >
               {item.title}
               {item.children.map((child, index) => (
                 <SheetClose asChild key={index}>
                   <NavMenu
-                    fonts={fonts}
                     item={child}
                     open={open}
                     setSheetOpen={setSheetOpen}

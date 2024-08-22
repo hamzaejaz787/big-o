@@ -13,7 +13,7 @@ import Link from "next/link";
 export const NavDropDownMenu = ({ item }: { item: NavItemTypes }) => {
   const navitems = item.children;
   return (
-    <NavigationMenu className="z-20">
+    <NavigationMenu className="z-50">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="text-xl p-0 bg-transparent hover:bg-transparent data-[active]:bg-transparent focus:text-white md:focus:text-gray-400 data-[state=open]:bg-transparent text-white md:text-gray-400 md:hover:text-white h-0">
