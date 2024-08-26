@@ -67,7 +67,7 @@ const AboutSection = () => {
       </article>
 
       <div className="h-full p-8 relative">
-        <div className="bg-custom-purple-600 w-1/2 min-h-2 h-full absolute top-0 right-0 -z-10" />
+        <div className="bg-custom-purple-600 w-1/4 min-h-2 h-full absolute top-0 right-0 -z-10" />
         <Image
           src="/about-img.png"
           alt=""

@@ -1,7 +1,5 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
   Form,
@@ -10,19 +8,14 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { formSchema } from "@/lib/definitions";
-import SubmitButton from "@/components/SubmitButton";
-import { quoteFormAction } from "@/lib/actions";
 import { toast } from "./ui/use-toast";
+import { useForm } from "react-hook-form";
+import { Input } from "@/components/ui/input";
+import { formSchema } from "@/lib/definitions";
+import { quoteFormAction } from "@/lib/actions";
 import { useAction } from "next-safe-action/hooks";
+import SubmitButton from "@/components/SubmitButton";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const QuoteForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -31,9 +24,6 @@ const QuoteForm = () => {
       fullname: "",
       email: "",
       company: "",
-      industry: "",
-      service: "",
-      budget: undefined,
       phone: undefined,
     },
   });
@@ -143,81 +133,6 @@ const QuoteForm = () => {
                       required
                       {...field}
                       placeholder="Company Name *"
-                      className="text-black"
-                    />
-                  </FormControl>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="industry"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      placeholder="Industry"
-                      {...field}
-                      className="text-black"
-                    />
-                  </FormControl>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="service"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Select
-                      name="service"
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Service" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="business-intelligence">
-                          Business Intelligence
-                        </SelectItem>
-                        <SelectItem value="responsible-ai">
-                          Responsible AI
-                        </SelectItem>
-                        <SelectItem value="cloud">Cloud</SelectItem>
-                        <SelectItem value="iot">
-                          Internet Of Things (IOT)
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="budget"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      type="number"
-                      inputMode="numeric"
-                      autoComplete="off"
-                      placeholder="Budget *"
-                      min={0}
-                      {...field}
                       className="text-black"
                     />
                   </FormControl>

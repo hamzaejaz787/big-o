@@ -46,7 +46,7 @@ export function flattenAttributes(data: any): any {
 }
 
 export function getStrapiURL() {
-  return process.env.STRAPI_URL;
+  return process.env.STRAPI_URL || "https://strapi.big0.dev";
 }
 
 export function getStrapiMedia(url: string | null) {

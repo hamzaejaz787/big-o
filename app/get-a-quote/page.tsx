@@ -1,9 +1,9 @@
-import BackgroundVideo from "@/components/BackgroundVideo";
-import GetInTouch from "@/components/GetInTouch";
-import { Metadata } from "next";
-import GetQuoteForm from "./_components/GetQuoteForm";
 import Link from "next/link";
+import BackgroundVideo from "@/components/BackgroundVideo";
+import { Metadata } from "next";
 import { MdOutlineExpandCircleDown } from "react-icons/md";
+import { Card } from "@/components/ui/card";
+import QuoteForm from "@/components/QuoteForm";
 
 export const metadata: Metadata = {
   title: "BigO - Get A Quote",
@@ -33,7 +33,16 @@ const GetAQuote = () => {
           </Link>
         </div>
       </BackgroundVideo>
-      <GetQuoteForm />
+
+      <section
+        id="quote"
+        className="space-y-4 text-center max-w-[95%] lg:max-w-4xl xl:max-w-5xl mx-auto my-8 md:mb-12 z-30 relative lg:-mt-20"
+      >
+        <h2 className="lg:text-white text-2xl">Request A Quote Today</h2>
+        <Card className="max-w-4xl mx-auto bg-gray-200 border-none flex flex-wrap md:flex-nowrap items-center justify-between shadow-md overflow-hidden gap-8 p-8">
+          <QuoteForm />
+        </Card>
+      </section>
     </>
   );
 };

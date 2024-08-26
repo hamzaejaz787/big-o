@@ -5,7 +5,7 @@ import Image from "next/image";
 import ServiceTabs from "@/components/ServiceTabs";
 import Faqs, { faqItemsProps } from "@/components/Faqs";
 import GetInTouch from "@/components/GetInTouch";
-import { getSubServiceBySlug } from "@/data/loaders";
+import { getIndustryBySlug } from "@/data/loaders";
 import { notFound } from "next/navigation";
 import { getStrapiURL } from "@/lib/utils";
 import { PageProps } from "@/lib/definitions";
@@ -16,7 +16,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const slug = params.slug;
-  const data = await getSubServiceBySlug(slug);
+  const data = await getIndustryBySlug(slug);
   return {
     title: data?.metaTitle,
     description: data?.metaDescription,
@@ -27,13 +27,14 @@ export async function generateMetadata({
   };
 }
 
-const Service = async ({ params }: { params: { slug: string } }) => {
-  const data = await getSubServiceBySlug(params.slug);
+const Industry = async ({ params }: { params: { slug: string } }) => {
+  const data = await getIndustryBySlug(params.slug);
   if (data.error?.status === 404) {
     notFound();
   }
 
   const baseUrl = getStrapiURL();
+
   //Parse faqs
   const faqItems = data.cardsdata
     .filter(
@@ -104,4 +105,4 @@ const Service = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default Service;
+export default Industry;

@@ -1,17 +1,22 @@
 "use client";
 
-import { useState } from "react";
-import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
+import { useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { getStrapiURL } from "@/lib/utils";
 
 interface Industry {
   id: number;
-  title: string;
-  description: string;
-  href: string;
+  navTitle: string;
+  slug: string;
+  cardicon: {
+    url: string;
+    alternativeText: string;
+  };
+  cardtext: string;
 }
 
 interface CardLoaderProps {
@@ -49,30 +54,34 @@ const CardLoader = ({ industriesData }: CardLoaderProps) => {
     },
   };
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const baseurl = getStrapiURL();
   return (
     <>
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
         className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-8"
+        ref={ref}
+        animate={isInView ? "visible" : "hidden"}
       >
         {industriesData.slice(0, visibleCards).map((industry) => (
           <motion.div key={industry.id} variants={cardVariants}>
-            <Link href={industry.href} className="group">
+            <Link href={`/industry/${industry.slug}`} className="group">
               <Card className="h-full bg-white flex flex-col items-center justify-center gap-4 overflow-hidden border-0 border-b-4 rounded-sm p-8 border-b-transparent group-hover:border-b-custom-purple-300 transition-all duration-300 group-hover:shadow-xl">
                 <Image
-                  src={"/industry-icon-1.svg"}
-                  alt={industry.title}
+                  src={baseurl + industry.cardicon.url}
+                  alt={industry.cardicon?.alternativeText}
                   width={75}
                   height={75}
                   className="object-cover"
                 />
                 <CardTitle className="text-xl text-center text-custom-purple-300">
-                  {industry.title}
+                  {industry.navTitle}
                 </CardTitle>
                 <CardDescription className="text-center text-gray-600">
-                  {industry.description}
+                  {industry.cardtext !== null ? industry.cardtext : ""}
                 </CardDescription>
               </Card>
             </Link>

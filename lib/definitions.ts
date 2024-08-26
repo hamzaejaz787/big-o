@@ -41,12 +41,6 @@ export const formSchema = z.object({
     .positive()
     .min(11),
   company: z.string(),
-  industry: z.string(),
-  service: z.string(),
-  budget: z.coerce
-    .number()
-    .min(1, { message: "Budget cannot be 0" })
-    .positive(),
 });
 
 export const getInTouchFormSchema = z.object({

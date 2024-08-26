@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaLinkedin,
-} from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
+import { LuFacebook, LuLinkedin, LuYoutube } from "react-icons/lu";
 
 interface NavItemProps {
   href: string;
@@ -26,46 +22,91 @@ const navItems: NavItemProps[] = [
 
 const socialLinks = [
   {
-    icon: <FaFacebook />,
+    icon: <LuFacebook />,
     href: "https://www.facebook.com/profile.php?id=61559667573420",
   },
   { icon: <FaInstagram />, href: "https://www.instagram.com/big0.dev/" },
+  { icon: <LuLinkedin />, href: "https://www.linkedin.com/company/big0-dev/" },
   {
-    icon: <FaYoutube />,
+    icon: <LuYoutube />,
     href: "https://www.youtube.com/channel/UCdFdgYjRGC53PPmE2XTlPhw",
   },
-  { icon: <FaLinkedin />, href: "https://www.linkedin.com/company/big0-dev/" },
 ];
 
 export function Footer() {
   return (
-    <footer className="dark bg-custom-purple-600 text-white py-8 space-y-8">
-      <div className="max-w-[1400px] px-2 sm:px-8 mx-auto flex flex-row flex-wrap gap-4 md:flex-nowrap items-center justify-center md:justify-between">
-        <Logo />
+    <footer className="bg-custom-purple-600 text-white py-8 space-y-8">
+      <div className="container px-4 sm:px-8 md:px-20 2xl:px-0 mx-auto flex justify-between gap-6 sm:gap-8 flex-col md:flex-row">
+        <div className="space-y-4">
+          <Logo />
 
-        <ul className="flex items-center justify-center sm:justify-normal gap-4 flex-row flex-wrap sm:flex-nowrap">
-          {navItems.map((navLink, index) => (
-            <li
-              key={index}
-              className="text-white hover:text-gray-400 focus-within:text-gray-400 transition-all duration-300 capitalize"
+          <div className="max-w-xs pl-1">
+            <h5 className="text-lg font-bold">Office</h5>
+            <Link
+              className="hover:text-custom-purple-300 transition-all duration-200"
+              href="https://maps.app.goo.gl/3MQpn7aqJ6H7wCrG8"
+              target="_blank"
             >
-              <Link href={navLink.href}>{navLink.title}</Link>
-            </li>
-          ))}
-        </ul>
-
-        <ul className="flex items-center gap-4 flex-row">
-          {socialLinks.map((link, index) => (
-            <li
-              key={index}
-              className="text-white hover:text-gray-400 focus-within:text-gray-400 capitalize transition-all duration-300"
-            >
-              <Link href={link.href} target="_blank">
-                {link.icon}
+              1054, East Avenue, Mississauga, Ontario L5E 1W9
+            </Link>
+          </div>
+          <div className="pl-1">
+            <h5 className="text-lg font-bold">Contact</h5>
+            <div className="flex flex-col items-start">
+              <Link
+                className="hover:text-custom-purple-300 transition-all duration-200"
+                href="tel:+1-437-365-9377"
+              >
+                +1-437-365-9377
               </Link>
-            </li>
-          ))}
-        </ul>
+              <Link
+                className="hover:text-custom-purple-300 transition-all duration-200"
+                href="mailto:info@Big0.dev"
+              >
+                info@Big0.dev
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="md:text-center space-y-4 md:self-center">
+          <h5 className="text-lg font-bold">Useful Links</h5>
+
+          <ul className="grid sm:grid-cols-2 gap-x-20 gap-y-4 text-left">
+            {navItems.map((navLink, index) => (
+              <li
+                key={index}
+                className="text-white hover:text-custom-purple-300 focus-within:text-custom-purple-300 transition-all duration-300 capitalize"
+              >
+                <Link href={navLink.href}>{navLink.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="space-y-4 sm:space-y-8 md:self-center">
+          <div className="space-y-1">
+            <h5 className="text-lg font-bold">Working Hours </h5>
+
+            <p>Monday to Friday: 9am - 8pm</p>
+          </div>
+          <div className="space-y-1">
+            <h5 className="text-lg font-bold">Social Media</h5>
+
+            <ul className="flex items-center gap-4 flex-row">
+              {socialLinks.map((link, index) => (
+                <li
+                  key={index}
+                  className="text-lg text-white hover:text-custom-purple-300 focus-within:text-custom-purple-300 capitalize transition-all duration-300"
+                >
+                  <Link href={link.href} target="_blank">
+                    {link.icon}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
 
       <ul className="flex items-center justify-center gap-4 flex-wrap md:flex-nowrap">

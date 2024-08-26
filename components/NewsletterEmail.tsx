@@ -61,7 +61,7 @@ const NewsletterEmail = () => {
     <>
       <Form {...form}>
         <form
-          className="flex items-center pt-4 max-w-xl"
+          className="flex items-start pt-4 max-w-xl"
           ref={formRef}
           onSubmit={form.handleSubmit(handleSubscribe)}
         >

@@ -1,5 +1,6 @@
 import React from "react";
 import CardLoader from "./CardLoader";
+import { getIndustries } from "@/data/loaders";
 
 const industriesData = [
   {
@@ -95,7 +96,8 @@ const industriesData = [
   },
 ];
 
-const WhyUsSection = () => {
+const WhyUsSection = async () => {
+  const industries = await getIndustries();
   return (
     <section className="container px-4 sm:px-8 py-14 bg-custom-purple-25">
       <strong className="text-custom-purple-300 font-tommy font-normal">
@@ -107,7 +109,7 @@ const WhyUsSection = () => {
         industries
       </h2>
 
-      <CardLoader industriesData={industriesData} />
+      <CardLoader industriesData={industries.data} />
     </section>
   );
 };

@@ -21,6 +21,9 @@ export async function getSubServicePage() {
   url.search = qs.stringify({
     populate: {
       fields: ["id", "slug", "navtitle", "servicetype"],
+      cardicon: {
+        populate: ["width", "height", "url", "alternativeText"],
+      },
     },
     pagination: {
       limit: 50,
@@ -37,7 +40,7 @@ export async function getSubServiceBySlug(slug: string) {
         populate: "*",
       },
       introImage: {
-        fields: ["name", "url", "alternativeText"],
+        populate: ["width", "height", "url", "alternativeText"],
       },
     },
   });
@@ -50,7 +53,7 @@ export async function getInsights() {
   url.search = qs.stringify({
     populate: {
       CardImage: {
-        fields: ["name", "url", "alternativeText"],
+        populate: ["width", "height", "url", "alternativeText"],
       },
       InsightTags: {
         populate: true,
@@ -66,7 +69,7 @@ export async function getInsightsBySlug(slug: string) {
   url.search = qs.stringify({
     populate: {
       CardImage: {
-        fields: ["name", "url", "alternativeText"],
+        populate: ["width", "height", "url", "alternativeText"],
       },
       InsightTags: {
         populate: true,
@@ -78,5 +81,35 @@ export async function getInsightsBySlug(slug: string) {
 }
 
 export const getIndustries = async () => {
-  const url = new URL("/api/");
+  const url = new URL("/api/industries", baseUrl);
+
+  url.search = qs.stringify({
+    populate: {
+      cardicon: {
+        populate: ["width", "height", "url", "alternativeText"],
+      },
+    },
+  });
+
+  return await fetchData(url.href);
+};
+
+export const getIndustryBySlug = async (slug: string) => {
+  const url = new URL(`/api/industries/${slug}`, baseUrl);
+
+  url.search = qs.stringify({
+    populate: {
+      cardsdata: {
+        populate: {
+          faqitem: { populate: true },
+          description: { populate: true },
+        },
+      },
+      introImage: {
+        populate: ["width", "height", "url", "alternativeText"],
+      },
+    },
+  });
+
+  return await fetchData(url.href);
 };
