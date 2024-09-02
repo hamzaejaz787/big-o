@@ -14,7 +14,11 @@ import { action } from "./safe-action";
 //Function for nodemailer transporter
 function getNodemailerTransporter(): Transporter {
   return createTransport({
-    service: process.env.NODEMAILER_HOST as string,
+    // service: process.env.NODEMAILER_HOST as string,
+    host: "smtp.office365.com",
+    port: 587,
+    secure: false,
+    tls: { ciphers: "SSLv3" },
     auth: {
       user: process.env.NODEMAILER_USERNAME,
       pass: process.env.NODEMAILER_PASSWORD,

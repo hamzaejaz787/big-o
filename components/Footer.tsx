@@ -13,7 +13,6 @@ interface NavItemProps {
 }
 
 const navItems: NavItemProps[] = [
-  { title: "Home", href: "/" },
   { title: "Who we are", href: "/about" },
   { title: "What we think", href: "/insights" },
   { title: "Get in touch", href: "/contact" },

@@ -95,10 +95,7 @@ const NavDropdown = ({ navItems, onLinkClick }: NavMenuAccordionProps) => {
       acc[item.type].push(item);
       return acc;
     },
-    { service: [], industry: [] } as {
-      service: NavChild[];
-      industry: NavChild[];
-    }
+    { service: [], industry: [] } as Record<"service" | "industry", NavChild[]>
   );
 
   return (
@@ -118,7 +115,7 @@ const NavDropdown = ({ navItems, onLinkClick }: NavMenuAccordionProps) => {
                       icon={<FaPlus size={18} />}
                       className="hover:no-underline p-0 text-white font-bebas text-xl"
                     >
-                      {type.charAt(0).toUpperCase() + type.slice(1)}
+                      {type === "service" ? "Capabilities" : "Industries"}
                     </AccordionTrigger>
                     <AccordionContent asChild className="p-0">
                       <ul className="space-y-4 p-4">
@@ -126,7 +123,7 @@ const NavDropdown = ({ navItems, onLinkClick }: NavMenuAccordionProps) => {
                           <li key={item.title}>
                             <Link
                               href={item.href}
-                              className="text-white font-bebas"
+                              className="text-white font-bebas text-lg"
                               onClick={onLinkClick}
                             >
                               {item.title}
