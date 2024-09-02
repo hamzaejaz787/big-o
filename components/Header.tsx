@@ -8,10 +8,9 @@ import {
   FaPhone,
   FaLocationDot,
 } from "react-icons/fa6";
-import Navbar, { NavItemTypes } from "./Navbar";
-import { bebas } from "@/app/fonts";
+import Navbar from "./Navbar";
+import { getAllIndustries, getAllSubServicePages } from "@/data/loaders";
 import Sidebar from "./Sidebar";
-import { getSubServicePage } from "@/data/loaders";
 
 interface SocialIconProps {
   id: number;
@@ -19,10 +18,35 @@ interface SocialIconProps {
   url: string;
 }
 
-interface ServiceItem {
+interface ServiceItemTypes {
   navtitle: string;
   servicetype: string;
   slug: string;
+}
+
+interface IndustryItemTypes {
+  navTitle: string;
+  servicetype: string;
+  slug: string;
+}
+
+export interface NavItemProps {
+  href: string;
+  title: string;
+  subItems?: {
+    title: string;
+    href: string;
+  }[];
+}
+
+export interface NavItemTypes {
+  href: string;
+  title: string;
+  children?: {
+    title: string;
+    href: string;
+    type: "service" | "industry";
+  }[];
 }
 
 const socialIcons: SocialIconProps[] = [
@@ -49,26 +73,42 @@ const socialIcons: SocialIconProps[] = [
 ];
 
 export async function Header() {
-  const serviceItems = await getSubServicePage();
+  const [serviceItems, industryItems] = await Promise.all([
+    getAllSubServicePages(),
+    getAllIndustries(),
+  ]);
+
   const navItems: NavItemTypes[] = [
-    { title: "Home", href: "/", children: [] },
-    { title: "Who we are", href: "/about", children: [] },
-    { title: "What we think", href: "/insights", children: [] },
+    { title: "Home", href: "/" },
+    { title: "Who we are", href: "/about" },
+    { title: "What we think", href: "/insights" },
     {
-      title: "What we do",
+      title: "What we offer",
       href: "",
       children: [],
     },
-    { title: "Get in touch", href: "/contact", children: [] },
+    { title: "Get in touch", href: "/contact" },
   ];
-  //Append subservice pages to the navitems
-  serviceItems.data.forEach((item: ServiceItem) => {
+
+  //Append subservice and industry pages to the "what we do" nav item
+  serviceItems.forEach((item: ServiceItemTypes) => {
     const href = `/services/${item.slug}`;
-    navItems[3].children.push({
-      title: item.navtitle,
-      href: href,
-      children: [],
-    });
+    if (navItems[3].children)
+      navItems[3].children.push({
+        title: item.navtitle,
+        href: href,
+        type: "service",
+      });
+  });
+
+  industryItems.forEach((item: IndustryItemTypes) => {
+    const href = `/industry/${item.slug}`;
+    if (navItems[3].children)
+      navItems[3].children.push({
+        title: item.navTitle,
+        href: href,
+        type: "industry",
+      });
   });
 
   return (

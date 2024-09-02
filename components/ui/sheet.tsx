@@ -66,9 +66,9 @@ const SheetContent = React.forwardRef<
       {...props}
     >
       {children}
-      <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm ring-offset-background transition-opacity focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
+      {/* <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm ring-offset-background transition-opacity focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
         <MdClose className="text-2xl text-white block md:hidden z-50 cursor-pointer" />
-      </SheetPrimitive.Close>
+      </SheetPrimitive.Close> */}
     </SheetPrimitive.Content>
   </SheetPortal>
 ));

@@ -15,8 +15,6 @@ const CookieConsentPopup = () => {
   }, [setCookieConsent]);
 
   React.useEffect(() => {
-    const newValue = cookieConsent ? "granted" : "denied";
-
     setLocalStorage("cookie_consent", cookieConsent);
   }, [cookieConsent]);
 

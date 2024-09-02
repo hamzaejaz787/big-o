@@ -32,6 +32,37 @@ export async function getSubServicePage() {
   return await fetchData(url.href);
 }
 
+export async function getAllSubServicePages() {
+  let allSubServicePages: any[] = [];
+  let hasMorePages = true;
+  let page = 1;
+  const pageSize = 24;
+
+  while (hasMorePages) {
+    const url = new URL("/api/sub-service-pages", baseUrl);
+    url.search = qs.stringify({
+      populate: {
+        fields: ["id", "slug", "navtitle", "servicetype"],
+        cardicon: {
+          populate: ["width", "height", "url", "alternativeText"],
+        },
+      },
+      pagination: {
+        page,
+        pageSize,
+      },
+    });
+
+    const { data, meta } = await fetchData(url.href);
+
+    allSubServicePages = [...allSubServicePages, ...data];
+    hasMorePages = data.length === pageSize;
+    page += 1;
+  }
+
+  return allSubServicePages;
+}
+
 export async function getSubServiceBySlug(slug: string) {
   const url = new URL(`/api/sub-service-pages/${slug}`, baseUrl);
   url.search = qs.stringify({
@@ -92,6 +123,36 @@ export const getIndustries = async () => {
   });
 
   return await fetchData(url.href);
+};
+
+export const getAllIndustries = async () => {
+  let allIndustryPages: any[] = [];
+  let hasMorePages = true;
+  let page = 1;
+  const pageSize = 24;
+
+  while (hasMorePages) {
+    const url = new URL("/api/industries", baseUrl);
+    url.search = qs.stringify({
+      populate: {
+        cardicon: {
+          populate: ["width", "height", "url", "alternativeText"],
+        },
+      },
+      pagination: {
+        page,
+        pageSize,
+      },
+    });
+
+    const { data, meta } = await fetchData(url.href);
+
+    allIndustryPages = [...allIndustryPages, ...data];
+    hasMorePages = data.length === pageSize;
+    page += 1;
+  }
+
+  return allIndustryPages;
 };
 
 export const getIndustryBySlug = async (slug: string) => {
