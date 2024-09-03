@@ -1,9 +1,8 @@
-import Link from "next/link";
-import BackgroundVideo from "@/components/BackgroundVideo";
 import { Metadata } from "next";
-import { MdOutlineExpandCircleDown } from "react-icons/md";
 import { Card } from "@/components/ui/card";
 import QuoteForm from "@/components/QuoteForm";
+import BackgroundVideo from "@/components/BackgroundVideo";
+import ScrollSectionButton from "@/components/ScrollSectionButton";
 
 export const metadata: Metadata = {
   title: "BigO - Get A Quote",
@@ -25,12 +24,7 @@ const GetAQuote = () => {
             step up to achieve new heights of success and growth.
           </p>
 
-          <Link href="#quote" className="mx-auto animate-bounce pt-10">
-            <MdOutlineExpandCircleDown
-              size={25}
-              className="cursor-pointer text-gray-300 hover:text-white transition-all duration-200"
-            />
-          </Link>
+          <ScrollSectionButton sectionId="quote" />
         </div>
       </BackgroundVideo>
 

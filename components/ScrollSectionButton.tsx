@@ -3,10 +3,16 @@
 import React from "react";
 import { MdOutlineExpandCircleDown } from "react-icons/md";
 
-const ScrollSectionButton = () => {
+type ScrollSectionButtonTypes = {
+  sectionId: string;
+};
+
+const ScrollSectionButton: React.FC<ScrollSectionButtonTypes> = ({
+  sectionId,
+}) => {
   const scrollToSection = () => {
     if (typeof window !== "undefined") {
-      const targetSection = document.getElementById("what-can-we-do");
+      const targetSection = document.getElementById(sectionId);
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: "smooth" });
       }

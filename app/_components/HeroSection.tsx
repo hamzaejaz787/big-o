@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import ScrollSectionButton from "./ScrollSectionButton";
+import ScrollSectionButton from "@/components/ScrollSectionButton";
 import Image from "next/image";
 import { HeroSectionTypes } from "@/lib/definitions";
 
@@ -32,7 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ carouselData }) => {
           >
             <Link href="/contact">Learn More</Link>
           </Button>
-          <ScrollSectionButton />
+          <ScrollSectionButton sectionId="what-can-we-do" />
         </div>
       </div>
     </section>
