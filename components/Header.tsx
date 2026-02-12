@@ -120,7 +120,7 @@ export async function Header() {
               key={icon.id}
               href={icon.url}
               target="_blank"
-              className="text-white hover:text-custom-purple-100 text-xl"
+              className="text-white hover:text-custom-purple-200 text-xl"
             >
               {icon.icon}
             </Link>
@@ -128,19 +128,19 @@ export async function Header() {
         </div>
         <div className="flex items-center gap-4 justify-center md:justify-start flex-wrap md:flex-nowrap">
           <Link
-            href="tel:+1-437-365-9377"
-            className="flex items-center gap-2 text-white hover:text-custom-purple-100 transition-all duration-300"
+            href="tel:+92-312-978-6297"
+            className="flex items-center gap-2 text-white hover:text-custom-purple-200 transition-all duration-300"
           >
             <FaPhone size={20} />
-            +1-437-365-9377
+            +92-312-978-6297
           </Link>
           <Link
-            href="https://maps.app.goo.gl/3MQpn7aqJ6H7wCrG8"
+            href="https://maps.app.goo.gl/MvLL7BbYZG1expJVA"
             target="_blank"
-            className="flex items-center text-center md:text-left gap-2 text-white hover:text-custom-purple-100 transition-all duration-300"
+            className="flex items-center text-center md:text-left gap-2 text-white hover:text-custom-purple-200 transition-all duration-300"
           >
             <FaLocationDot size={20} />
-            1054, East Avenue, Mississauga, Ontario L5E 1W9
+            First Floor, Plaza #54, Sector F, DHA Phase 1, Islamabad.
           </Link>
         </div>
       </div>

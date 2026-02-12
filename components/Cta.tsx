@@ -5,9 +5,9 @@ import Link from "next/link";
 const Cta = () => {
   return (
     <section className="container px-4 sm:px-10 py-14">
-      <div className="bg-gradient-to-r from-custom-purple-600 from-35% to-[#431A5C] to-95% rounded-md p-10 flex items-center justify-between flex-wrap gap-4 max-w-6xl mx-auto">
+      <div className="bg-gradient-to-r from-custom-purple-600 from-35% to-[#0B9444] to-95% rounded-md p-10 flex items-center justify-between flex-wrap gap-4 max-w-6xl mx-auto">
         <div className="space-y-2">
-          <h2 className="text-3xl text-custom-purple-300 font-tommy">
+          <h2 className="text-3xl text-white font-tommy">
             Amplify Your Business Success
           </h2>
           <p className="text-white md:max-w-md">

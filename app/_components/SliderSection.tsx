@@ -9,7 +9,7 @@ const SliderSection = async () => {
     notFound();
   }
   return (
-    <section className="container px-4 sm:px-8 py-14 bg-custom-purple-700 space-y-4">
+    <section className="container px-4 sm:px-8 py-14 bg-custom-purple-600 space-y-4">
       <article className="space-y-2 md:max-w-md text-center mx-auto">
         <strong className="text-custom-purple-300 font-tommy font-normal">
           Our Services

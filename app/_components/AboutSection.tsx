@@ -33,7 +33,7 @@ const AboutSection = () => {
           About Company
         </strong>
         <h2 className="text-4xl font-tommy uppercase">
-          BigO Comprehensive Services:{" "}
+          CyberXSoft Comprehensive Services:{" "}
           <span className="font-bold">Transforming Data into Insights</span>
         </h2>
         <p>

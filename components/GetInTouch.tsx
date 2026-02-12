@@ -10,7 +10,7 @@ const GetInTouch = () => {
     <section className="bg-custom-purple-500 text-white py-12 px-6 sm:px-12 md:px-20">
       <strong className="uppercase text-center block">Connect</strong>
       <h2 className="text-center text-5xl font-bold">Get In Touch</h2>
-      <p className="text-center text-custom-purple-100">
+      <p className="text-center text-white">
         We&apos;re here to answer any questions you may have. Feel free to reach
         out to us.
       </p>
@@ -26,10 +26,10 @@ const GetInTouch = () => {
             <div>
               <h5 className="text-lg font-bold">Email</h5>
               <Link
-                className="hover:text-custom-purple-100 transition-all duration-200"
+                className="hover:text-custom-purple-200 transition-all duration-200"
                 href="mailto:info@Big0.dev"
               >
-                info@Big0.dev
+                info@CyberXSoft.dev
               </Link>
             </div>
           </div>
@@ -41,7 +41,7 @@ const GetInTouch = () => {
             <div>
               <h5 className="text-lg font-bold">Phone</h5>
               <Link
-                className="hover:text-custom-purple-100 transition-all duration-200"
+                className="hover:text-custom-purple-200 transition-all duration-200"
                 href="tel:+1-437-365-9377"
               >
                 +1-437-365-9377
@@ -56,7 +56,7 @@ const GetInTouch = () => {
             <div>
               <h5 className="text-lg font-bold">Office</h5>
               <Link
-                className="hover:text-custom-purple-100 transition-all duration-200"
+                className="hover:text-custom-purple-200 transition-all duration-200"
                 href="https://maps.app.goo.gl/3MQpn7aqJ6H7wCrG8"
                 target="_blank"
               >

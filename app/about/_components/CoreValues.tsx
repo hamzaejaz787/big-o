@@ -36,7 +36,7 @@ const valuesData: valuesDataProps[] = [
 const CoreValues = () => {
   return (
     <section className="py-20 px-8 sm:px-10 md:px-20 space-y-8 container">
-      <h2 className="text-custom-purple-300 uppercase text-4xl font-tommy text-center">
+      <h2 className="text-custom-purple-500 uppercase text-4xl font-tommy text-center">
         Core Values
       </h2>
 
@@ -49,7 +49,7 @@ const CoreValues = () => {
               width={150}
               height={150}
             />
-            <h4 className="text-custom-purple-300 uppercase text-lg font-bold text-center">
+            <h4 className="text-custom-purple-500 uppercase text-lg font-bold text-center">
               {value.title}
             </h4>
             <p className="text-center">{value.description}</p>

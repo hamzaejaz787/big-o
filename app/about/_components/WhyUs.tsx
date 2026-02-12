@@ -29,7 +29,7 @@ const whyUs: whyUsProps[] = [
 ];
 const WhyUs = () => {
   return (
-    <section className="h-full w-full bg-custom-purple-700 px-8 sm:px-14 md:px-28 pt-10 sm:pt-20 relative overflow-hidden">
+    <section className="h-full w-full bg-custom-purple-600 px-8 sm:px-14 md:px-28 pt-10 sm:pt-20 relative overflow-hidden">
       <div className="container flex flex-col gap-10 xl:gap-16 justify-between">
         <h2 className="text-white font-tommy uppercase text-center md:text-left text-4xl md:text-5xl lg:text-7xl">
           <span className="font-bold">Why</span> choose us?
@@ -38,7 +38,7 @@ const WhyUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start max-w-4xl pb-10 md:pb-20">
           {whyUs.map((item) => (
             <div key={item.title} className="flex flex-col gap-2 items-start">
-              <h4 className="text-custom-purple-300 uppercase text-lg font-bold">
+              <h4 className="text-white uppercase text-lg font-bold">
                 {item.title}
               </h4>
               <p className="text-white">{item.description}</p>

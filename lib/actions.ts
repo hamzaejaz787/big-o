@@ -38,7 +38,7 @@ export const contactFormAction = action
     const mailOptions: Mail.Options = {
       from: process.env.NODEMAILER_USERNAME,
       to: process.env.NODEMAILER_USERNAME,
-      subject: `Message from Big0 Contact Form`,
+      subject: `Message from CyberXSoft  Contact Form`,
       text: `New Submission from ${name}
       Email: ${email}
       Message: ${message}
@@ -80,7 +80,7 @@ export const quoteFormAction = action
     const mailOptions: Mail.Options = {
       from: process.env.NODEMAILER_USERNAME,
       to: process.env.NODEMAILER_USERNAME,
-      subject: `New quote for Big0 from ${fullname} ${email}`,
+      subject: `New quote for CyberXSoft from ${fullname} ${email}`,
       text: `${fullname} Submitted following data: 
         Fullname: ${fullname}
         Email: ${email}

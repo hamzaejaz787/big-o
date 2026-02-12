@@ -47,7 +47,7 @@ const FaqControl = () => {
   return (
     <section className="container px-6 sm:px-8 md:pl-0 flex justify-between gap-4 flex-wrap md:flex-nowrap">
       <div className="hidden md:block relative h-auto w-full">
-        <div className=" bg-custom-purple-700 w-1/2 h-full -z-10" />
+        <div className=" bg-custom-purple-600 w-1/2 h-full -z-10" />
         <FaqNavigationContainer
           navigationItems={navigationItems}
           activeFaq={activeFaq}

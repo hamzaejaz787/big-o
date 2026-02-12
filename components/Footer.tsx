@@ -24,7 +24,7 @@ const socialLinks = [
     icon: <LuFacebook />,
     href: "https://www.facebook.com/profile.php?id=61559667573420",
   },
-  { icon: <FaInstagram />, href: "https://www.instagram.com/big0.dev/" },
+  { icon: <FaInstagram />, href: "https://www.instagram.com/cyberxsoft.dev/" },
   { icon: <LuLinkedin />, href: "https://www.linkedin.com/company/big0-dev/" },
   {
     icon: <LuYoutube />,
@@ -43,10 +43,10 @@ export function Footer() {
             <h5 className="text-lg font-bold">Office</h5>
             <Link
               className="hover:text-custom-purple-300 transition-all duration-200"
-              href="https://maps.app.goo.gl/3MQpn7aqJ6H7wCrG8"
+              href="https://maps.app.goo.gl/MvLL7BbYZG1expJVA"
               target="_blank"
             >
-              1054, East Avenue, Mississauga, Ontario L5E 1W9
+              First Floor, Plaza #54, Sector F, DHA Phase 1, Islamabad.
             </Link>
           </div>
           <div className="pl-1">
@@ -54,15 +54,15 @@ export function Footer() {
             <div className="flex flex-col items-start">
               <Link
                 className="hover:text-custom-purple-300 transition-all duration-200"
-                href="tel:+1-437-365-9377"
+                href="tel:+92-312-978-6297"
               >
-                +1-437-365-9377
+                +92-312-978-6297
               </Link>
               <Link
                 className="hover:text-custom-purple-300 transition-all duration-200"
                 href="mailto:info@Big0.dev"
               >
-                info@Big0.dev
+                info@CyberXSoft.dev
               </Link>
             </div>
           </div>
@@ -110,7 +110,7 @@ export function Footer() {
 
       <ul className="flex items-center justify-center gap-4 flex-wrap md:flex-nowrap">
         <li className="text-white pointer-events-none">
-          © 2024 Big0. All rights reserved.
+          © 2026 CyberXSoft. All rights reserved.
         </li>
         <li className="text-gray-400 hover:text-white focus-within:text-white">
           <Link href="/policy">Privacy Policy</Link>
